@@ -1,5 +1,16 @@
-let verifyEquals = require('./verify-equals.js');
+let eq = (lhs, rhs) => {
+  if (Array.isArray(lhs)) {
+    for (let i = 0; i < lhs.length; i++) {
+      if (lhs[i] !== rhs[i]) return false
+    }
+    return true
+  }
+  return lhs === rhs
 
+}
+let verifyEquals = (lhs, rhs) => {
+  if (!eq(lhs, rhs)) throw new Error("The expected output doesn't match the actual output")
+}
 // we need 8 test cases. I've provided the first 2
 let inputs = [
   ["hello", 4],
@@ -21,14 +32,14 @@ f(["abc", 0]); // a
 
 */
 function f(arr) {
-    
+
 }
 
 function runTest(i) {
-    let expected = outputs[i];
-    let input = inputs[i];
-    let actual = f(input);
-    verifyEquals(expected, actual)
+  let expected = outputs[i];
+  let input = inputs[i];
+  let actual = f(input);
+  verifyEquals(expected, actual)
 }
 
 runTest(0);

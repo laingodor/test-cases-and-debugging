@@ -1,10 +1,20 @@
-let verifyEquals = require('./verify-equals.js');
-
+let eq = (lhs, rhs) => {
+    if (Array.isArray(lhs)) {
+        for (let i = 0; i < lhs.length; i++) {
+            if (lhs[i] !== rhs[i]) return false
+        }
+        return true
+    }
+    return lhs === rhs
+}
+let verifyEquals = (lhs, rhs) => {
+    if (!eq(lhs, rhs)) throw new Error("The expected output doesn't match the actual output")
+}
 // we need 5 test cases. 
 let inputs = [
     [[0, 1, 2, 3], [1, 3, 4, 5]],
-    [[1,2,3], [1,2,3]],
-    [2,3]
+    [[1, 2, 3], [1, 2, 3]],
+    [2, 3]
 ]
 
 let outputs = [

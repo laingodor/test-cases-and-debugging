@@ -1,15 +1,29 @@
-let verifyEquals = require('./verify-equals.js'); // this line imports the verifyEquals function from the verify-equals.js file
+let eq = (lhs, rhs) => {
+    if (Array.isArray(lhs)) {
+        for (let i = 0; i < lhs.length; i++) {
+            if (lhs[i] !== rhs[i]) return false
+        }
+        return true
+    }
+    return lhs === rhs
+}
 
-// we need 5 test cases. I provided 1 input
+let verifyEquals = (lhs, rhs) => {
+    if (!eq(lhs, rhs)) throw new Error("The expected output doesn't match the actual output")
+}
+
+// We need 5 test cases. I provided 1 input
 let inputs = [
+    5
 ]
 
 let outputs = [
+    2
 ]
 
 // Make this function return the first letter of the string that is passed to it. If the string does not have a first letter, return undefined
 function f(str) {
-    
+
 }
 
 function runTest(i) {

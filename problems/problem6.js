@@ -1,6 +1,15 @@
-// pro tip: use nodemon instead of node
-let verifyEquals = require('./verify-equals.js');
-
+let eq = (lhs, rhs) => {
+  if (Array.isArray(lhs)) {
+    for (let i = 0; i < lhs.length; i++) {
+      if (lhs[i] !== rhs[i]) return false
+    }
+    return true
+  }
+  return lhs === rhs
+}
+let verifyEquals = (lhs, rhs) => {
+  if (!eq(lhs, rhs)) throw new Error("The expected output doesn't match the actual output")
+}
 // we need 6 test cases. 
 let inputs = [
   ["add", 10, 20],
@@ -22,14 +31,14 @@ f(["spoof", 10, 10]); // undefined
 
 */
 function f(arr) {
-    
+
 }
 
 function runTest(i) {
-    if(i > inputs.length) throw new Error("You do not have enough test cases");
-    let expected = outputs[i];
-    let actual = f(inputs[i]);
-    verifyEquals(expected, actual)
+  if (i > inputs.length) throw new Error("You do not have enough test cases");
+  let expected = outputs[i];
+  let actual = f(inputs[i]);
+  verifyEquals(expected, actual)
 }
 
 runTest(0);
