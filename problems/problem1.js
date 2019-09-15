@@ -14,11 +14,11 @@ let verifyEquals = (lhs, rhs) => {
 
 // We need 5 test cases. I provided 1 input
 let inputs = [
-    5
+    "abc"
 ]
 
 let outputs = [
-    2
+    "a"
 ]
 
 // Make this function return the first letter of the string that is passed to it. If the string does not have a first letter, return undefined
