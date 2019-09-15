@@ -29,7 +29,7 @@ function f(str) {
 function runTest(i) {
     let expected = outputs[i];
     let actual = f(inputs[i]);
-    verifyEquals(expected, actual) // verifyEquals is imported above
+    verifyEquals(expected, actual) 
 }
 
 runTest(0);
