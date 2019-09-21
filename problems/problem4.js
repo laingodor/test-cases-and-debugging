@@ -1,26 +1,29 @@
 let eq = (lhs, rhs) => {
   if (Array.isArray(lhs)) {
     for (let i = 0; i < lhs.length; i++) {
-      if (lhs[i] !== rhs[i]) return false
+      if (lhs[i] !== rhs[i]) return false;
     }
-    return true
+    return true;
   }
-  return lhs === rhs
-
-}
+  return lhs === rhs;
+};
 let verifyEquals = (lhs, rhs) => {
-  if (!eq(lhs, rhs)) throw new Error("The expected output doesn't match the actual output")
-}
+  if (!eq(lhs, rhs))
+    throw new Error("The expected output doesn't match the actual output");
+};
 // we need 8 test cases. I've provided the first 2
 let inputs = [
   ["hello", 4],
-  ["", 2]
-]
+  ["", 2],
+  ["chocolate", 6],
+  ["string", 8],
+  [189, 2],
+  ["falcon", 4],
+  ["purpose", 6],
+  ["trust", 4]
+];
 
-let outputs = [
-  "o",
-  undefined
-]
+let outputs = ["o", undefined, "a", undefined, undefined, "o", "e", "t"];
 
 /*
 Make this function return the letter at the specified position in the string. If no such letter exists, it should return undefined.
@@ -32,14 +35,20 @@ f(["abc", 0]); // a
 
 */
 function f(arr) {
-
+  let word = arr[0];
+  let index = arr[1];
+  if (word.length < index + 1 || typeof word !== "string") {
+    return undefined;
+  }
+  return word[index];
 }
 
 function runTest(i) {
   let expected = outputs[i];
   let input = inputs[i];
   let actual = f(input);
-  verifyEquals(expected, actual)
+  console.log(expected, actual);
+  verifyEquals(expected, actual);
 }
 
 runTest(0);
@@ -50,4 +59,4 @@ runTest(4);
 runTest(5);
 runTest(6);
 runTest(7);
-console.log("All tests passed for " + __filename)
+console.log("All tests passed for " + __filename);

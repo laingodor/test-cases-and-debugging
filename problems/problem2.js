@@ -13,16 +13,18 @@ let verifyEquals = (lhs, rhs) => {
 }
 // we need 5 test cases.
 let inputs = [
-
+    'move', 'c', '', '2000', 'chocolate'
 ]
 
 let outputs = [
-
+    'e', 'c', undefined, '0', 'e'
 ]
 
 // Make this function return the last letter of the string that is passed to it. If the string does not have a last letter, return undefined
 function f(str) {
-
+    let lastChar = str.charAt(str.length-1);
+    if (lastChar === '') return undefined;
+    return lastChar;
 }
 
 function runTest(i) {

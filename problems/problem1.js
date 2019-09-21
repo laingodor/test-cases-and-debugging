@@ -14,16 +14,17 @@ let verifyEquals = (lhs, rhs) => {
 
 // We need 5 test cases. I provided 1 input
 let inputs = [
-    "abc"
+    'abc', '', 'cocoa', '2000', 'hurts'
 ]
 
 let outputs = [
-    "a"
+    'a', undefined, 'c', '2', 'h'
 ]
 
 // Make this function return the first letter of the string that is passed to it. If the string does not have a first letter, return undefined
 function f(str) {
-
+    if (str.charAt(0) === '') return undefined;
+    return str.charAt(0);
 }
 
 function runTest(i) {
