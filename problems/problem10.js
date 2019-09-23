@@ -31,6 +31,14 @@ HINT:
 
 */
 function f(str) {
+if (typeof str !== 'string')
+{return undefined}
+
+if (str !== '')
+{return ''
+
+for ()
+}
 
 }
 
